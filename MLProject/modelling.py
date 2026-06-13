@@ -7,7 +7,7 @@ import mlflow.sklearn
 import dagshub
 
 def main():
-    data_path = "heart_preprocessed.csv"
+    data_path = os.path.join('..','preprocessing', 'namadataset_preprocessing', 'heart_preprocessed.csv')
     df = pd.read_csv(data_path)
 
     X = df.drop(columns=['target'])
