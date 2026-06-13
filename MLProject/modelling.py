@@ -13,11 +13,28 @@ def main():
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
+    custom_env = {
+        "name": "mlflow-env",
+        "channels": ["conda-forge", "nodefaults"],
+        "dependencies": [
+            "python=3.12.7",
+            "pip",
+            {
+                "pip": [
+                    "pandas",
+                    "numpy",
+                    "scikit-learn",
+                    "mlflow==2.19.0"
+                ]
+            }
+        ]
+    }
+    
     with mlflow.start_run() as run:
         model = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)
         model.fit(X_train, y_train)
         
-        mlflow.sklearn.log_model(model, "model")
+        mlflow.sklearn.log_model(model, "model", conda_env=custom_env)
         
         with open("run_id.txt", "w") as f:
             f.write(run.info.run_id)
