@@ -42,5 +42,10 @@ jobs:
       run: |
         cd MLProject
         RUN_ID=$(cat run_id.txt)
-        mlflow models build-docker -m "runs:/$RUN_ID/model" -n ${{ secrets.DOCKER_USERNAME }}/heart-disease-model:latest --env-manager=conda
+        
+        mlflow models generate-dockerfile -m "runs:/$RUN_ID/model" -d build_dir
+        
+        sed -i 's|https://bootstrap.pypa.io/get-pip.py|https://bootstrap.pypa.io/pip/3.9/get-pip.py|g' build_dir/Dockerfile
+        
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/heart-disease-model:latest build_dir/
         docker push ${{ secrets.DOCKER_USERNAME }}/heart-disease-model:latest
