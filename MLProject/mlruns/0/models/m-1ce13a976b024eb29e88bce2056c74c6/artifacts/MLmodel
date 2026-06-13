@@ -1,0 +1,41 @@
+artifact_path: file:D:/Test/Workflow-CI/MLProject/mlruns/0/models/m-1ce13a976b024eb29e88bce2056c74c6/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.9.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.13.0
+model_id: m-1ce13a976b024eb29e88bce2056c74c6
+model_size_bytes: 381233
+model_uuid: m-1ce13a976b024eb29e88bce2056c74c6
+prompts: null
+run_id: 43d2f0c7896641b89817a49f716b2d9d
+signature:
+  inputs: '[{"type": "double", "name": "age", "required": true}, {"type": "long",
+    "name": "sex", "required": true}, {"type": "double", "name": "trestbps", "required":
+    true}, {"type": "double", "name": "chol", "required": true}, {"type": "long",
+    "name": "fbs", "required": true}, {"type": "double", "name": "thalach", "required":
+    true}, {"type": "long", "name": "exang", "required": true}, {"type": "double",
+    "name": "oldpeak", "required": true}, {"type": "double", "name": "ca", "required":
+    true}, {"type": "long", "name": "cp_1", "required": true}, {"type": "long", "name":
+    "cp_2", "required": true}, {"type": "long", "name": "cp_3", "required": true},
+    {"type": "long", "name": "restecg_1", "required": true}, {"type": "long", "name":
+    "restecg_2", "required": true}, {"type": "long", "name": "slope_1", "required":
+    true}, {"type": "long", "name": "slope_2", "required": true}, {"type": "long",
+    "name": "thal_1", "required": true}, {"type": "long", "name": "thal_2", "required":
+    true}, {"type": "long", "name": "thal_3", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-06-13 14:24:05.585370'
