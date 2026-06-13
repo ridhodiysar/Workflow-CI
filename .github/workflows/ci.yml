@@ -42,5 +42,5 @@ jobs:
       run: |
         cd MLProject
         RUN_ID=$(cat run_id.txt)
-        mlflow models build-docker -m "runs:/$RUN_ID/model" -n ${{ secrets.DOCKER_USERNAME }}/heart-disease-model:latest
+        mlflow models build-docker -m "runs:/$RUN_ID/model" -n ${{ secrets.DOCKER_USERNAME }}/heart-disease-model:latest --env-manager=conda
         docker push ${{ secrets.DOCKER_USERNAME }}/heart-disease-model:latest
